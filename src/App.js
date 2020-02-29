@@ -19,6 +19,9 @@ class App extends React.Component {
       return { players }; // es6 short hand property : 키와 값이 같으면 한쪽을 생략
     });
   }
+  handleChangeScore(id, delta) {
+    console.log('changeScore: ', id, delta);
+  }
   render() {
     return (
       <div className="scoreboard">
@@ -27,7 +30,7 @@ class App extends React.Component {
         {
           this.state.players.map(player => (
             <Player name={player.name} score={player.score} id={player.id} key={player.id}
-                    removePlayer={this.handleRemove}/>
+                    removePlayer={this.handleRemove} changeScore={this.handleChangeScore} />
           ))
         }
       </div>
