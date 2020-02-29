@@ -16,9 +16,9 @@ export class AddPlayerForm extends React.Component {
   }
   render() {
     return (
-      <form action="" className="form" onSubmit={this.handleSubmit}>
+      <form noValidate className="form" onSubmit={this.handleSubmit}>
         <input value={this.state.value} onChange={this.handleValueChange}
-               type="text" className="input" placeholder="enter a player name" />
+               type="text" className="input" placeholder="enter a player name" required />
         <input type="submit" className="input" value="Add Player" />
       </form>
     );
