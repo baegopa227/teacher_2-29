@@ -7,13 +7,14 @@ export const Statistics = (props) => {
   // props.players.forEach(item => {
   //   totlaPoint += item.score
   // });
+  let totalPlayer = props.players.length;
 
   return (
     <table className="stats">
       <tbody>
       <tr>
         <td>Players:</td>
-        <td>2</td>
+        <td>{totalPlayer}</td>
       </tr>
       <tr>
         <td>Total Points:</td>
