@@ -15,14 +15,20 @@ export class Stopwatch extends React.Component {
     return (
       <div className="stopwatch">
         <h2>Stopwatch</h2>
-        <span className="stopwatch-time">0</span>
+        <span className="stopwatch-time">{this.state.timer}</span>
         {/*conditional Rendering*/}
         <button onClick={this.handleStopwatch}>{ this.state.isRunning ? 'Stop' : 'Start'}</button>
         <button>Reset</button>
       </div>
     )
   }
-  tick() {}
+  tick = () => {
+    if (this.state.isRunning) {
+      this.setState(prevState => ({
+        timer: prevState.timer + 1
+      }))
+    }
+  }
   // Dom이 렌더링된 직후에 리액트가 호출
   // 예) Rest API 콜, 외부 라이브러리 로딩
   componentDidMount() {
