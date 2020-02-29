@@ -4,6 +4,8 @@ import './App.css';
 import {Player} from "./components/Player";
 import {AddPlayerForm} from "./components/AddPlayerForm";
 
+let maxId = 4;
+
 class App extends React.Component {
   state = {
     players: [
@@ -32,6 +34,16 @@ class App extends React.Component {
       return { players };
     })
   }
+  handleAddPlayer = (name) => {
+    console.log('handleAddPlayer: ', name);
+    this.setState(prevState => {
+      // 원본 배열 복사
+      const players = [ ...prevState.players ];
+      // 끝에 추가
+      players.push({name, id: ++maxId, score: 0});
+      return { players };
+    })
+  }
   render() {
     return (
       <div className="scoreboard">
@@ -44,7 +56,7 @@ class App extends React.Component {
           ))
         }
 
-        <AddPlayerForm></AddPlayerForm>
+        <AddPlayerForm addPlayer={this.handleAddPlayer}></AddPlayerForm>
       </div>
     );
   }
